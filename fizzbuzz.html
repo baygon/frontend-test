@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>FizzBuzz</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 20px;
+        cursor: pointer;
+      }
+
+      #output {
+        border: 1px solid #ccc;
+        padding: 15px;
+        min-height: 100px;
+        max-height: 400px;
+        overflow-y: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>FizzBuzz</h1>
+    <button id="fizzBuzzBtn">Run FizzBuzz (1-100)</button>
+    <div id="output"></div>
+
+    <script>
+      document
+        .getElementById("fizzBuzzBtn")
+        .addEventListener("click", function () {
+          const output = document.getElementById("output");
+          output.innerHTML = "";
+          for (let i = 1; i <= 100; i++) {
+            const line = document.createElement("div");
+
+            if (i % 3 === 0 && i % 5 === 0) {
+              line.textContent = "FizzBuzz";
+            } else if (i % 3 === 0) {
+              line.textContent = "Fizz";
+            } else if (i % 5 === 0) {
+              line.textContent = "Buzz";
+            } else {
+              line.textContent = i;
+            }
+
+            output.appendChild(line);
+          }
+        });
+    </script>
+  </body>
+</html>
