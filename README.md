@@ -20,6 +20,19 @@ First make sure the application works, if you have any time left after that you 
 
 Don't hesitate to come to us with any questions.
 
+## Run this solution
+
+Install dependencies and start the app from the project root:
+
+```bash
+npm install
+npm run start
+```
+
+The app runs on:
+
+http://localhost:3000
+
 ## 1. Warmup
 
 Feel free to just create a JavaScript file to solve this task, no need to implement it with React

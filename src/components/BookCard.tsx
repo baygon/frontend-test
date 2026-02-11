@@ -90,56 +90,58 @@ export default function BookCard({ book, isbn }: BookCardProps) {
 
         {hovered && (
           <div className="book-overlay">
-            {isOverlayLoading ? (
-              <div className="overlay-loading">Loading details...</div>
-            ) : searchDetails ? (
-              <div className="overlay-info">
-                {(searchDetails.coverUrl || coverUrl) && (
-                  <img
-                    src={searchDetails.coverUrl || coverUrl}
-                    alt={`Large cover of ${searchDetails.title}`}
-                    className="overlay-cover"
-                  />
-                )}
-                <h3>{searchDetails.title}</h3>
-                <p>
-                  <strong>Authors:</strong>{" "}
-                  {searchDetails.authors.join(", ") || "Unknown"}
-                </p>
-                <p>
-                  <strong>Publish Date:</strong> {searchDetails.publishDate}
-                </p>
-                <p>
-                  <strong>Format:</strong> {searchDetails.physicalFormat}
-                </p>
-                {searchDetails.numberOfPages && (
+            <div className="book-overlay-panel">
+              {isOverlayLoading ? (
+                <div className="overlay-loading">Loading details...</div>
+              ) : searchDetails ? (
+                <div className="overlay-info">
+                  {(searchDetails.coverUrl || coverUrl) && (
+                    <img
+                      src={searchDetails.coverUrl || coverUrl}
+                      alt={`Large cover of ${searchDetails.title}`}
+                      className="overlay-cover"
+                    />
+                  )}
+                  <h3>{searchDetails.title}</h3>
                   <p>
-                    <strong>Pages:</strong> {searchDetails.numberOfPages}
+                    <strong>Authors:</strong>{" "}
+                    {searchDetails.authors.join(", ") || "Unknown"}
                   </p>
-                )}
-                {searchDetails.weight && (
                   <p>
-                    <strong>Weight:</strong> {searchDetails.weight}
+                    <strong>Publish Date:</strong> {searchDetails.publishDate}
                   </p>
-                )}
-              </div>
-            ) : (
-              <div className="overlay-info">
-                <h3>{book.title}</h3>
-                <p>
-                  <strong>Authors:</strong>{" "}
-                  {book.author_name?.join(", ") || "Unknown"}
-                </p>
-                {book.first_publish_year && (
                   <p>
-                    <strong>First Published:</strong> {book.first_publish_year}
+                    <strong>Format:</strong> {searchDetails.physicalFormat}
                   </p>
-                )}
-                <p>
-                  <em>No ISBN available for detailed info</em>
-                </p>
-              </div>
-            )}
+                  {searchDetails.numberOfPages && (
+                    <p>
+                      <strong>Pages:</strong> {searchDetails.numberOfPages}
+                    </p>
+                  )}
+                  {searchDetails.weight && (
+                    <p>
+                      <strong>Weight:</strong> {searchDetails.weight}
+                    </p>
+                  )}
+                </div>
+              ) : (
+                <div className="overlay-info">
+                  <h3>{book.title}</h3>
+                  <p>
+                    <strong>Authors:</strong>{" "}
+                    {book.author_name?.join(", ") || "Unknown"}
+                  </p>
+                  {book.first_publish_year && (
+                    <p>
+                      <strong>First Published:</strong> {book.first_publish_year}
+                    </p>
+                  )}
+                  <p>
+                    <em>No ISBN available for detailed info</em>
+                  </p>
+                </div>
+              )}
+            </div>
           </div>
         )}
       </div>
