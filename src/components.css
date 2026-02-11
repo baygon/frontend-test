@@ -1,0 +1,209 @@
+/* Book Display Component */
+.book-display {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  max-width: 350px;
+}
+
+.book-display.loading,
+.book-display.error {
+  justify-content: center;
+  padding: 40px;
+}
+
+.book-cover {
+  width: 200px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.book-info h2 {
+  margin-top: 0;
+}
+
+.book-info p {
+  margin: 10px 0;
+}
+
+/* Book Search Component */
+.book-search {
+  padding: 20px;
+}
+
+.book-search form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.2s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #0066cc;
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+}
+
+.book-search button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: 1px solid #333;
+  background-color: #333;
+  color: #fff;
+  border-radius: 4px;
+  transition:
+    background-color 0.2s,
+    transform 0.1s;
+}
+
+.book-search button:hover:not(:disabled) {
+  background-color: #555;
+  transform: translateY(-1px);
+}
+
+.book-search button:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+.book-search button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.search-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.search-empty {
+  margin-top: 16px;
+  color: #666;
+  text-align: center;
+}
+
+.loading {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Book Card Component (Search Results) */
+.book-card {
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+  padding: 10px;
+  border-radius: 4px;
+  transition: transform 0.2s;
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+}
+
+.book-card:focus-within {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+.book-card-cover {
+  width: 128px;
+  height: 128px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: block;
+  transition: box-shadow 0.2s;
+}
+
+.book-card:hover .book-card-cover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.book-card-cover-placeholder {
+  background: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #666;
+}
+
+.book-card-title {
+  font-size: 14px;
+  margin-top: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Hover Overlay */
+.book-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.98);
+  border: 2px solid #333;
+  border-radius: 4px;
+  padding: 15px;
+  z-index: 10;
+  overflow-y: auto;
+  text-align: left;
+  animation: fadeIn 0.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.overlay-info h3 {
+  margin-top: 0;
+  font-size: 16px;
+}
+
+.overlay-cover {
+  width: 170px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 12px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.overlay-info p {
+  margin: 8px 0;
+  font-size: 13px;
+}
+
+.overlay-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
